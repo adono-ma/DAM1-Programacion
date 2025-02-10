@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Interfaces;
-
+//saludos siderales
 /**
 La idea es algo parecido a esto (este código no funciona):
 *  public static void imprArray(OperacionesArrayableV2 entrada[]) {
