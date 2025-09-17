@@ -1,0 +1,112 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package Matrices;
+
+/**
+ *
+ * @author ixche
+ */
+import java.util.Scanner;
+
+public class MediaAlumnos_clase_29_10_24 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        String alumnos[] = {"Nacho", "Ana", "Sandra"};
+        String asignaturas[] = {"FOL", "BBDD"};
+        Scanner sc = new Scanner(System.in);
+
+//        int notas[][] = new int[alumnos.length][asignaturas.length];
+        int notas[][] = {{5, 3}, {10, 9}, {9, 8}};
+
+//        for (int i = 0; i < notas.length; i++) {
+//            System.out.println("Introduciendo las notas de "+asignaturas[i]);
+//            for (int j = 0; j < notas[i].length; j++) {
+//                System.out.println("Alumno "+(j+1)+"/"+alumnos.length+": "+alumnos[j]);
+//                notas[i][j] = sc.nextInt();
+//            }
+//        }
+//        int nota = 0;
+//        for (int i = 0; i < notas.length; i++) {
+//            for (int j = 0; j < notas[i].length; j++) {
+//                notas[i][j] = nota;
+//                nota++;
+//            }
+//        }
+        //imprMatInt(notas);
+//        System.out.println("==================");
+//        imprMatInt2(notas, alumnos, asignaturas);
+        System.out.println("Medias de los Alumnos:");
+        double[] mediasAlu = mediaAlumnos(notas);
+
+        for (int i = 0; i < mediasAlu.length; i++) {
+            System.out.println(alumnos[i] + ": " + mediasAlu[i]);
+        }
+
+        System.out.println("Medias de asignatura:");
+        double[] mediasAsig = mediaAsignaturas(notas);
+        for (int i = 0; i < mediasAsig.length; i++) {
+            System.out.println(asignaturas[i] + ": " + mediasAsig[i]);
+        }
+    }
+
+    static void imprArr(double[] e) {
+        for (int i = 0; i < e.length; i++) {
+            System.out.print(e[i] + " ");
+        }
+        System.out.println("");
+    }
+
+    static void imprMatInt(int[][] entrada) {
+        for (int i = 0; i < entrada.length; i++) {
+            for (int j = 0; j < entrada[i].length; j++) {
+                System.out.print(entrada[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    static void imprMatInt2(int[][] notas, String[] alus, String[] asig) {
+
+        System.out.println("Imprimiendo notas de los alumnos:");
+        for (int i = 0; i < notas.length; i++) {
+            System.out.println("Nombre del alumno: " + alus[i]);
+            for (int j = 0; j < notas[i].length; j++) {
+                System.out.print(asig[j] + ": ");
+                System.out.print(notas[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    static double[] mediaAlumnos(int[][] notas) {
+        double[] medias = new double[notas.length];
+        for (int i = 0; i < notas.length; i++) {
+            int suma = 0;
+            for (int j = 0; j < notas[i].length; j++) {
+                suma = suma + notas[i][j];
+            }
+
+            medias[i] = (double) suma / (double) notas[i].length;
+        }
+
+        return medias;
+    }
+
+    static double[] mediaAsignaturas(int[][] notas) {
+        double[] medias = new double[notas.length];
+
+        for (int i = 0; i < notas.length; i++) {
+            int suma = 0;
+            for (int j = 0; j < notas[i].length; j++) {
+                suma = suma + notas[i][j];
+            }
+            medias[i] = (double) suma / notas[i].length;
+        }
+        return medias;
+    }
+}
